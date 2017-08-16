@@ -31,7 +31,7 @@ namespace csharp_seven_kata
 
         }
 
-        // KATA: Replace the conditional statement under the Moblin case with 2 separate cases where one uses 
+        // KATA (complete): Replace the conditional statement under the Moblin case with 2 separate cases where one uses 
         // pattern matching to check to see if the color on the Moblin is "Red"
         public string PatternMatchingSwitch(ICreature creature) {
 
@@ -44,14 +44,15 @@ namespace csharp_seven_kata
                 case Octorok o:
                     creatureName = "Octorok";
                     break;
+                // Triggers: Error	CS8120	The switch case has already been handled by a previous case
+                //case Moblin m:
+                //    creatureName = "Moblin";
+                //    break;
+                case Moblin m when m.Color.Equals("red", StringComparison.CurrentCultureIgnoreCase):
+                    creatureName = "Red Moblin";
+                    break;
                 case Moblin m:
-                    if (m.Color == "Red")
-                    {
-                        creatureName = "Red Moblin";
-                    }
-                    else {
-                        creatureName = "Moblin";
-                    }
+                    creatureName = "Moblin";
                     break;
                 default:
                     creatureName = "Unknown Creature";
