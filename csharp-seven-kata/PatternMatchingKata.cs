@@ -17,19 +17,9 @@ namespace csharp_seven_kata
     public class PatternMatchingKata
     {
 
-        // KATA: Replace the "as" convention and null check with the "is" syntax
+        // KATA (complete): Replace the "as" convention and null check with the "is" syntax
         // Note: Should be able to accomplish without the use of "as," "ToString()," "switch" or casting.
-        public string PatternMatchingIsExpression(object val) {
-
-            var str = val as string;
-
-            if (str != null) {
-                str += "Bar";
-            }
-
-            return str;
-
-        }
+        public string PatternMatchingIsExpression(object val) => (val is string) ? $"{val}Bar" : throw new Exception($"Object param {val} is not a string");
 
         // KATA (complete): Replace the conditional statement under the Moblin case with 2 separate cases where one uses 
         // pattern matching to check to see if the color on the Moblin is "Red"
