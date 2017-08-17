@@ -14,21 +14,16 @@ namespace csharp_seven_kata
      */
     public class ThrowExpressionsKata
     {
-        // KATA: Take this assignment out of the constructor and throw an error when Settings is initialized to null
+        // KATA (complete): Take this assignment out of the constructor and throw an error when Settings is initialized to null
         // Hint: You should be able to remove the null check from the constructor
         // Hint: You should be able to move the initialization logic from the setter on the property to the private and use an expression body to initialize and throw if null
         // Note: Doing exceptions this way will cause exceptions to be thrown during the construction of an object. This is generally discouraged. 
-        public ThrowExpressionsKata() {
-            if (Settings == null) {
-                throw new ArgumentNullException("Could not load settings");
-            }
-        }
-
+        public ThrowExpressionsKata() => Settings = InitializeSettings() ?? throw new ArgumentNullException("Could not load settings");
 
         private ISettings settings;
-        public ISettings Settings { get => settings; set => settings = InitializeSettings(); }
+        public ISettings Settings { get => settings; set => settings = value; }
 
-        // KATA: Replace the conditional in the setter with an expression-body (see the getter) and a throw expression
+        // KATA (complete): Replace the conditional in the setter with an expression-body (see the getter) and a throw expression
         // Making the setter a single line of code.
         // Hint: you can use the null coalese 
         // Note: Doing exceptions this way will cause exceptions to be thrown during the construction of an object.  This is generally discouraged. 
@@ -36,16 +31,7 @@ namespace csharp_seven_kata
         public string PropertyException
         {
             get => propertyException;
-            set
-            {
-                if (value != null)
-                {
-                    propertyException = value;
-                }
-                else {
-                    throw new ArgumentNullException("Cannot assign null");
-                }
-            }
+            set => propertyException  = value ?? throw new ArgumentNullException("Cannot assign null");
         }
 
         private ISettings InitializeSettings() {
