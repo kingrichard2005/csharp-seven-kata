@@ -29,20 +29,10 @@ namespace csharp_seven_kata
     public class TupleKata
     {
 
-        // KATA: Convert the two methods below to one method that returns a ValueTuple (int StringCount, int IntCount).
+        // KATA (complete): Convert the two methods below to one method that returns a ValueTuple (int StringCount, int IntCount).
         // Modify the unit test to validate the values from the new tuple.
         private string[] StringArr= new string[] { "one", "two", "three", "four"};
         private int[] IntArr = new int[] {1,2,3};
-
-        public int GetStringCount() {
-            return StringArr.Length;
-        }
-
-        public int GetIntCount()
-        {
-            return IntArr.Length;
-        }
-
-
+        public (int IntArr, int StringArr) GetArrLengths() => (IntArr: IntArr.Length, StringArr: StringArr.Length);
     }
 }

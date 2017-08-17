@@ -12,8 +12,8 @@ namespace csharp_seven_kata_tests
         {
             var tupleKata = new TupleKata();
 
-            Assert.AreEqual(4, tupleKata.GetStringCount());
-            Assert.AreEqual(3, tupleKata.GetIntCount());
+            Assert.AreEqual(4, tupleKata.GetArrLengths().StringArr);
+            Assert.AreEqual(3, tupleKata.GetArrLengths().IntArr);
             
         }
     }
