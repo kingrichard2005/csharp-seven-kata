@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace csharp_seven_kata
+﻿namespace csharp_seven_kata
 {
     /*
      * From: https://docs.microsoft.com/en-us/dotnet/articles/csharp/csharp-7#numeric-literal-syntax-improvements
@@ -11,17 +9,17 @@ namespace csharp_seven_kata
      */
     public class NumericLiteralSyntax
     {
-        // KATA: Write the following ints from their respective format to a binary literal format
+        // KATA (complete): Write the following ints from their respective format to a binary literal format
         // Note: Make sure to use the '0b' at the beginning of the constant value
         // Note: The digit separator can be used with decimal, float and double types
 
-        public const int OneDecimalFormat = 1;
-        public const int TwoDecimalFormat = 2;
-        public const int FourDecimalFormat = 4;
-        public const int EightDecimalFormat = 8;
-        public const int SixteenDecimalFormat = 16;
-        public const int ThirtyTwoDecimalFormat = 32;
-        public const int SixtyFourDecimalFormat = 64;
+        public const int OneDecimalFormat = 0b01;
+        public const int TwoDecimalFormat = 0b10;
+        public const int FourDecimalFormat = 0b100;
+        public const int EightDecimalFormat = 0b1000;
+        public const int SixteenDecimalFormat = 0b1_0000;
+        public const int ThirtyTwoDecimalFormat = 0b10_0000;
+        public const int SixtyFourDecimalFormat = 0b100_0000;
 
         public const int OneHexFormat = 0x01;
         public const int TwoHexFormat = 0x02;
@@ -39,11 +37,11 @@ namespace csharp_seven_kata
         public const int ThirtyTwoBitShiftFormat = 1 << 5;
         public const int SixtyFourBitShiftFormat = 1 << 6;
 
-        // KATA: Convert the long.MaxValue to a decimal representation using the "digit separator"
-        public const long LongMaxValue = long.MaxValue; //9,223,372,036,854,775,807
+        // KATA (complete): Convert the long.MaxValue to a decimal representation using the "digit separator"
+        public const long LongMaxValue = 9_223_372_036_854_775_807; //9,223,372,036,854,775,807
 
-        // KATA: Convert the 100000000 to a decimal representation using the "digit separator"
-        public const int OneMillionDollars = 1000000;
+        // KATA (complete): Convert the 100000000 to a decimal representation using the "digit separator"
+        public const int OneMillionDollars = 1_000_000;
 
     }
 }

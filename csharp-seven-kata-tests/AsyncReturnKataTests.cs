@@ -17,7 +17,7 @@ namespace csharp_seven_kata_tests
             var sw = new Stopwatch();
 
             sw.Start();
-            var result = await asyncReturnKata.ProcessWidget(1);
+            var result = await asyncReturnKata.ProcessWidgetValueTask(1);
             sw.Stop();
 
             Debug.WriteLine($"Widget processed in {sw.ElapsedMilliseconds}ms");

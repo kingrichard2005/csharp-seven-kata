@@ -24,11 +24,22 @@ namespace csharp_seven_kata
         // Note: Even in this contrived scenario, ValueTask should still be faster than Task
         // Note: In this method's current form it uses Heap allocation
 
+        private static bool _cache = false;
+        private static string _cacheResult;
         // Bonus: Duplicate the existing method, test and compare the timings of Task vs ValueTask
-        public async Task<string> ProcessWidget(int delay)
+        public async Task<string> ProcessWidget(int delay, bool resetCache = true)
         {
+            if(resetCache)
+            {
+                _cache = true;
+                _cacheResult = string.Empty;
+            }
             await Task.Delay(delay);
-            return "Widget processed";
+            _cacheResult = "Widget processed";
+            _cache = true;
+            return _cacheResult;
         }
+
+        public ValueTask<string> ProcessWidgetValueTask(int delay, bool resetCache = true) => (_cache) ? new ValueTask<string>(_cacheResult) : new ValueTask<string>(ProcessWidget(delay, resetCache));
     }
 }
