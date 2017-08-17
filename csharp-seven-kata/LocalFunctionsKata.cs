@@ -22,7 +22,7 @@ namespace csharp_seven_kata
      */
     public class LocalFunctionsKata
     {
-        // KATA: Collapse ManufactureWidgets, BuildWidget, and GenerateWidgetName all into a single method with local functions.
+        // KATA (complete): Collapse ManufactureWidgets, BuildWidget, and GenerateWidgetName all into a single method with local functions.
         // Note: Make sure to nest according to scope and use
 
         public List<Widget> ManufactureWidgets() {
@@ -35,20 +35,21 @@ namespace csharp_seven_kata
             }
 
             return widgets;
-        }
-
-        private Widget BuildWidget(int id, string name) {
-            var newName = GenerateWidgetName(name);
-            return new Widget { Id = id, Name = newName };
-        }
-
-        private string GenerateWidgetName(string name) {
-            var random = new Random();
-            var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-            return new string(
-                Enumerable.Repeat(chars, name.Length)
-              .Select(s => s[random.Next(s.Length)]).ToArray()
-              );
+            // local (helper) methods
+            Widget BuildWidget(int id, string name)
+            {
+                var newName = GenerateWidgetName(name);
+                return new Widget { Id = id, Name = newName };
+            };
+            string GenerateWidgetName(string name)
+            {
+                var random = new Random();
+                var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+                return new string(
+                    Enumerable.Repeat(chars, name.Length)
+                  .Select(s => s[random.Next(s.Length)]).ToArray()
+                  );
+            };
         }
     }
 

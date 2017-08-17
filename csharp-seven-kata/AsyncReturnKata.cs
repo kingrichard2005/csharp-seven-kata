@@ -19,7 +19,7 @@ namespace csharp_seven_kata
 
     public class AsyncReturnKata
     {
-        // KATA: Convert this method to use the new "ValueTask" syntax; specifically to use ValueTask<string>
+        // KATA (completed): Convert this method to use the new "ValueTask" syntax; specifically to use ValueTask<string>
         // Note: You will need the System.Threading.Tasks.Extensions nuget package. ValueTask is not yet in C# 7
         // Note: Even in this contrived scenario, ValueTask should still be faster than Task
         // Note: In this method's current form it uses Heap allocation
